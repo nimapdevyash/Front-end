@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- signup form -->
+    <form action="submit" method="post">
+
+        <label for="name">full name : </label>
+        <input type="text" name="name" />
+
+        <br />
+
+        <label for="email">email : </label>
+        <input type="email" name="email" id="eml" />
+
+        <br />
+
+        <label for="password">password : </label>
+        <input type="password" name="password" id="pass" />
+
+        <br />
+
+        <select name="city" id="ct">
+            <option value="mumbai">mumbai</option>
+            <option value="nagpur">nagpur</option>
+        </select>
+
+        <br />
+
+        <label for="gender">gender : </label>
+
+        <label for="female">female</label>
+        <input type="radio" name="gender" value="female" id="female" />
+
+        <label for="male">male</label>
+        <input type="radio" name="gender" value="male" id="male" />
+
+        <br />
+
+        <label for="age">age</label>
+        <input type="number" max="100" min="18" name="age" id="" />
+
+        <br />
+
+        <button type="submit">submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+
+    <script>
+
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("event : ", e);
+            console.log("form : ", {
+                name: form.elements["name"].value,
+                email: form.elements["email"].value,
+                password: form.elements["password"].value,
+                gender: form.elements["gender"].value,
+                age: form.elements["age"].value,
+                city: form.elements["city"].value
+            })
+
+            const pre = document.createElement("pre");
+            pre.textContent = `
+           form : {
+                name: ${form.elements["name"].value},
+                email:${form.elements["email"].value},
+                password:${form.elements["password"].value},
+                gender:${form.elements["gender"].value},
+                age:${form.elements["age"].value},
+                city: ${form.elements["city"].value}
+            } `
+
+            document.body.appendChild(pre);
+
+        });
+
+        // window.alert(form);
+    </script>
+
+</body>
+
+</html>
